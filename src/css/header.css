@@ -1,0 +1,113 @@
+
+header {
+    background-color: #323232;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(270.09deg, #0D7377 0.06%, #B6EADA 101.02%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.header-container>a>img {
+    margin-right: 20px;
+}
+
+.header-btn-box {
+
+    display: flex;
+    align-items: center;
+}
+
+/*---BtnCreate---*/
+.pulse-button {
+    display: block;
+    width: 100px;
+    height: 50px;
+    font-size: 14px;
+    font-weight: light;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 50px;
+    letter-spacing: 1px;
+    color: #B6EADA;
+    border: 2px solid #0D7377;
+    border-radius: 50px;
+    background: linear-gradient(270.09deg, #0D7377 0.06%, #446158 101.02%);
+    cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(90, 153, 212, 0.5);
+    -webkit-animation: pulse 3s infinite;
+    margin-right: 60px;
+}
+
+.pulse-button:hover {
+    -webkit-animation: none;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    70% {
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        box-shadow: 0 0 0 15px rgba(90, 153, 212, 0);
+    }
+
+    100% {
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+    }
+}
+
+/*-------*/
+
+
+/*---Login/LogOut btns---*/
+.login {
+    border: 2px solid #0D7377;
+    background: linear-gradient(270.09deg, #0D7377 0.06%, #446158 101.02%);
+    width: 100px;
+    cursor: pointer;
+    border-radius: 50px;
+    padding: 13px 0px 13px 0px;
+    color: #B6EADA;
+    font-size: 18px;
+    text-align: left;
+    text-indent: 25px;
+    display: block;
+    text-shadow: #0D7377 1px 0 10px;
+
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transition-duration: .4s;
+    -webkit-transition-property: all;
+
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition-duration: .4s;
+    -moz-transition-property: all;
+}
+
+.login:hover {
+    text-indent: 20px;
+}

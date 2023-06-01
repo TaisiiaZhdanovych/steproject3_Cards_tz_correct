@@ -1,0 +1,39 @@
+     <div class="filter-container">
+    
+        <form class="field-search">
+            <div class="dropdown-search">
+                <input class="inp-clear" type="search" id="search-input" placeholder="Search..." autocomplete="off">
+            </div>
+            <div class="dropdown">
+                <label class="arrow-urgency" for="urgency">▼</label>
+                
+                <input class="select-inp inp-clear" type="text" id="urgency" placeholder="Urgency..." value="" readonly />
+        
+                <ul class="dropdown__list-urgency list">
+                    <li class="dpopdown-item" data-value="All">All</li>
+                    <li class="dpopdown-item" data-value="High">High</li>
+                    <li class="dpopdown-item" data-value="Normal">Normal</li>
+                    <li class="dpopdown-item" data-value="Low">Low</li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <label class="arrow-status" for="status">▼</label>
+                <input class="select-inp inp-clear" type="text" id="status" placeholder="Status..." value="" readonly />
+                <ul class="dropdown__list-status list">
+                    <li class="dpopdown-item" data-value="All">All</li>
+                    <li class="dpopdown-item" data-value="Open">Open</li>
+                    <li class="dpopdown-item" data-value="Done">Done</li>
+        
+                </ul>
+            </div>
+           
+            <button class="clear__btn">Clear</button>
+        </form>
+        <div id="cards">
+        
+        </div>
+    
+        
+    </div>
+
+</div>

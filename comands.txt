@@ -1,0 +1,52 @@
+npm init (--yes)
+npm search(s) (Package Name) -поиск пакет
+npm search(s) "(package name)"
+npm view (package name) - просмотр пакета
+npm repo (package name) - репозиторий пакета
+npm home (package name) - домашняя страница
+npm install(i) (package name) - установка
+npm install (package name) --save-prod(-P) - dependencies
+npm install (package name) --save-dev(-D) - DevDependencies
+npm list - список всех установленных пакетов
+npm list --depth=0 - список только пакетов без вспомогателей
+
+npm run (script name) 
+
+npm install (package name) -g -глобально добавить
+npm list -g - список всех установленных глобальных пакетов
+npm list -g --depth=0 - список только глобальных пакетов без вспомогателей
+
+
+
+GIT:
+
+Git global setup
+git config --global user.name "NIKNAME"
+git config --global user.email "MAIL"
+
+Create a new repository
+git clone git@gitlab.com:NIKNAME/step-prj.git
+cd step-prj
+git switch -c main
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin main
+
+Push an existing folder
+cd existing_folder
+git init --initial-branch=main
+git remote add origin git@gitlab.com:NIKNAME/step-prj.git
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+
+Push an existing Git repository
+cd existing_repo
+git remote rename origin old-origin
+git remote add origin git@gitlab.com:NIKNAME/step-prj.git
+git push -u origin --all
+git push -u origin --tags
+git pull  --update repositiry
+
+ 

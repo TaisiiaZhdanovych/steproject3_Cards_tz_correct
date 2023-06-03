@@ -3,6 +3,13 @@ import { token, fetchData } from "./fetchGet.js";
 import { render } from "./script.js";
 import { hide } from "./login.js";
 
+export async function update() {
+  
+  await fetchData();
+  await filterSearch();
+}
+
+
 //Функция получения карточки по id
 export function get(id) {
     fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
@@ -62,18 +69,29 @@ export function clear(form) {
 //Функция отправки изменений
 export async function pushEdit(formObj, id) {
     fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
-        method: "PUT",
-        headers: {
+      method: "PUT",
+      headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token()}`,
-        },
-        body: JSON.stringify(formObj),
+      },
+      body: JSON.stringify(formObj),
     })
+      .then((response) => response.json())
+      .then((response) => {
+        document.querySelector(".form-box").remove();
+        hide();
+        clearInputs();
 
-        .then(response => response.json())
-        .catch(() => console.log('Error'));
-    await fetchData();
-    await filterSearch();
+        let parseCards = JSON.parse(localStorage.getItem("cardsData")); //поправила, щоб не було нового фетчзапиту при видаленні стрічка 20-26
+
+        parseCards.push(response);
+        localStorage.setItem("cardsData", JSON.stringify(filterCards));
+         
+      })
+      .catch(() => console.log("Error"));
+    // await fetchData();
+    // await filterSearch();
+    update()
 }
 
 //Функция отправки новой карточки
@@ -82,19 +100,26 @@ export function pushChange(formObj) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token()}`
+            'Authorization': `Bearer ${token()}` 
         },
             body: JSON.stringify(formObj)
         })
         .then(response => response.json())
         .then(response => {
-            document.querySelector(".create-box").remove();
-            hide(); 
-            clearInputs();
-            let Newcard = [];  
-            Newcard.push(response);
-            render(Newcard); 
-    })
+          document.querySelector(".create-box").remove();
+          hide();
+          clearInputs();
+          // let Newcard = [];       //було
+          // Newcard.push(response);  //було
+
+          // render(Newcard); // було убрала бо картка після створення з'являлась двічі
+          let parseCards = JSON.parse(localStorage.getItem("cardsData")); //поправила, щоб не було нового фетчзапиту при видаленні стрічка 20-26
+
+
+            parseCards.push(response);
+             localStorage.setItem("cardsData", JSON.stringify(filterCards));
+        //   render(response);
+        })
             .catch(() => console.log('Error',Error));
 }
 

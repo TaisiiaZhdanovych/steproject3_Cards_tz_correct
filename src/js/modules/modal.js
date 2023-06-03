@@ -17,6 +17,7 @@ export class Modal {
 
     //Отрисовать заголовок формы изменения карточки
     formEdit() {
+        
         let container = document.createElement('div');
         container.classList.add("create-form-background")
         container.setAttribute('id', this.id);

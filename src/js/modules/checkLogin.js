@@ -3,7 +3,7 @@ import { logout } from "./login.js";
 import { foundBtn } from "./create.js";
 import { edit } from "./edit.js";
 import { fetchData } from "./fetchGet.js";
-
+import { filterSearch } from "./search.js";
 
 
 // const email = "Taisiya.zhdan@gmail.com";
@@ -18,8 +18,10 @@ async function getToken(username, password) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: `${username}`,
-      password: `${password}`,
+      // email: `${username}`,
+      // password: `${password}`,
+      email: "taisiya@gmail.com",
+      password: "cards1234",
     }),
   });
   const res = await data.text();
@@ -31,9 +33,16 @@ async function getToken(username, password) {
   } else {
     localStorage.setItem("token", res);
     await fetchData();
+    filterSearch();
       return true;
   }
 
+}
+
+export async function refreshData() { 
+   await fetchData();
+   filterSearch();
+   return true;
 }
 
 
@@ -73,24 +82,34 @@ export function logVal () {
     }
   });
 }
- 
-        
-
-
-async function checkUserLogIn() {
+async function checkUserLogIn() {                        // цю ф-ю видалити
   localStorage.clear();
-        let inpEmail = document.getElementById("username").value;
-        let inpPassword = document.getElementById("password").value;
-        let obj = new User(inpEmail, inpPassword);
-       
-        if (obj.validatePassword() === true && obj.validateEmail() === true) {
-          let responce = await getToken(inpEmail, inpPassword);
-          responce ? login() : logout();
-          
-        } else {
-            alert("Incorrect format username or password");
-            document.getElementById("username").value = "";
-            document.getElementById("password").value = "";
-    }
-    foundBtn();
-}    
+  let inpEmail = document.getElementById("username").value;
+  let inpPassword = document.getElementById("password").value;
+  // let obj = new User(inpEmail, inpPassword);
+
+  // if (obj.validatePassword() === true && obj.validateEmail() === true) {
+    let responce = await getToken(inpEmail, inpPassword);
+    responce ? login() : logout();
+  // } else {
+  //   alert("Incorrect format username or password");
+  //   document.getElementById("username").value = "";
+  //   document.getElementById("password").value = "";
+  // }
+}
+   // async function checkUserLogIn() {                                    //розкоментувати для прав логыныз.
+   //   localStorage.clear();
+   //   let inpEmail = document.getElementById("username").value;
+   //   let inpPassword = document.getElementById("password").value;
+   //   let obj = new User(inpEmail, inpPassword);
+
+   //   if (obj.validatePassword() === true && obj.validateEmail() === true) {
+   //     let responce = await getToken(inpEmail, inpPassword);
+   //     responce ? login() : logout();
+   //   } else {
+   //     alert("Incorrect format username or password");
+   //     document.getElementById("username").value = "";
+   //     document.getElementById("password").value = "";
+   //   }
+   // foundBtn(); //виносимо туди де відбув. успішна логінізація
+//  }    

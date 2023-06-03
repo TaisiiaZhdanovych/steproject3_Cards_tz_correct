@@ -7,6 +7,7 @@ import { token } from "./fetchGet.js";
 import { edit } from "./edit.js";
 
 
+
 export function render(arrCardData) {
     arrCardData.forEach((user) => {
         if (user.doctor == 'Dentist') {
@@ -69,6 +70,9 @@ export function render(arrCardData) {
             this.classList.add("hidden");
         });
     });
+
     del();
-    edit();
+   edit();
+
+   
 }

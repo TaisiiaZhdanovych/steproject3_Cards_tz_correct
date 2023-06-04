@@ -6,9 +6,9 @@ import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
 import { logVal,refreshData } from "./checkLogin.js";
 import { foundBtn } from "./create.js";
-import { clearInputs, filterSearch} from "./search.js"  // добавила для рендеру карток при логіні
+import { clearInputs} from "./search.js" 
 
-//document.querySelector(".vacuum");
+
 btnLogin.onclick= () => {
   if (btnLogin.value ==='Logout') {
 
@@ -21,8 +21,8 @@ btnLogin.onclick= () => {
      console.log("test");
      const background = new Modal();
      background.loginForm();
-     document.querySelector(".vacuum").style.display = "none"; // добавила для скриття No items have been added.
-     const log = new NewModal(); //?
+     document.querySelector(".vacuum").style.display = "none"; 
+     const log = new NewModal(); 
 
      log.loginForm();
      logVal();
@@ -46,16 +46,7 @@ export async function check() {
     logout();
 
   }
-  // if (btnLogin.value ==='Login') {
-  //   // document.querySelector('.vacuum').style.display = 'none'; // було
-
-  //   logout();
-
-  // } else if (btnLogin.value ==='Logout') {
-
-  //   document.querySelector('.login-box')?.remove();
-
-  // }
+  
 }
 
 //Функция скрытия блоков при открытии модального окна
@@ -85,17 +76,16 @@ export function logout() {
   pulseButton.style.display = 'none';
   filterContainer.style.display = 'none';
 
-  document.querySelector(".vacuum").style.display = "block";
-  clearInputs()   //добавила щоб не виводило no rezults
-  // document.querySelector(".login-box").remove();
+document.querySelector(".login-box").remove();
+  
+  clearInputs()   //добавила щоб не виводило no rezults при logout
+  
 
   localStorage.removeItem("token");
 
 }
 
 check();
-// filterSearch();
-//console.log(check(), "hjgjhg")
-// logout();
+
 
 

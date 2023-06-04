@@ -3,14 +3,14 @@ import { fetchData } from "./fetchGet.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
 import { clearInputs, filterSearch } from "./search.js";
-// import { formSelect, writeInputToObject, clear, pushChange } from "./functions.js";
+
 import { formSelect, writeInputToObject, clear, pushChange, update } from "./functions.js";
 
 
 export function foundBtn() {
   pulseButton.addEventListener("click", () => {
     document.querySelector(".field-search").style.display = "none";// доб. чтоб поля поиска изчезали при открытии окна create
-    document.querySelector(".create-form-background")?.remove(); /////////////////////////////////////////
+    document.querySelector(".create-form-background")?.remove();
     document.querySelector(".cards-holder").style.display = "none";
     // logout();
     const mod = new Modal();
@@ -57,38 +57,3 @@ export function foundBtn() {
   });
     
 }
-//         found();
-//     })
-// }
-
-// //Функция событий по клику
-// function found() {
-//     const clearBtn = document.querySelector('.clear');
-//     const form = document.querySelector(".form-box");
-//     const btnCansel = document.querySelector('.form-btn-cancel');
-//     const btnAdd = document.querySelector('.add');
-//     formSelect(form);
-//     btnAdd.addEventListener('click', (event) => {
-//         event.preventDefault();
-//         let outputObj = {}; 
-//         writeInputToObject(outputObj);
-//         pushChange(outputObj);
-//         btnCreate();
-//     })
-    
-//     async function btnCreate() {
-//         await fetchData();
-//     }
-    
-//     clearBtn.addEventListener('click', (event) => {
-//         event.preventDefault();
-//         clear(form);
-//     });
-    
-//     btnCansel.addEventListener('click', () => {
-//         const createBox = document.querySelector('.create-box');
-//         clear(form);
-//         createBox.remove();
-//         hide();
-//     })
-// }

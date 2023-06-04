@@ -109,7 +109,7 @@ export async function filterSearch() {
 
     cardsData.forEach((card) => {
       if (
-        (rgxSearch.test(card.title) || rgxSearch.test(card.name)) &&  //було card.description замість card.name
+        (rgxSearch.test(card.title) || rgxSearch.test(card.name)) &&                         //description
         rgxUrgency.test(card.urgency) &&
         rgxStatus.test(card.status)
       ) {

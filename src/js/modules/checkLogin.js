@@ -1,13 +1,13 @@
 import { login } from "./login.js";
 import { logout } from "./login.js";
-import { foundBtn } from "./create.js";
-import { edit } from "./edit.js";
+// import { foundBtn } from "./create.js";
+// import { edit } from "./edit.js";
 import { fetchData } from "./fetchGet.js";
 import { filterSearch } from "./search.js";
 
 
-// const email = "Taisiya.zhdan@gmail.com";
-// const pass = "Cards2911";
+// const email = "taisiya.@gmail.com";
+// const pass = "cards1234";
 
 
 // повторне отримання токену після реєстрації
@@ -18,10 +18,10 @@ async function getToken(username, password) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      // email: `${username}`,
-      // password: `${password}`,
-      email: "taisiya@gmail.com",
-      password: "cards1234",
+      email: `${username}`,
+      password: `${password}`,
+      // email: "taisiya@gmail.com",
+      // password: "cards1234",
     }),
   });
   const res = await data.text();
@@ -82,34 +82,22 @@ export function logVal () {
     }
   });
 }
-async function checkUserLogIn() {                        // цю ф-ю видалити
-  localStorage.clear();
-  let inpEmail = document.getElementById("username").value;
-  let inpPassword = document.getElementById("password").value;
-  // let obj = new User(inpEmail, inpPassword);
 
-  // if (obj.validatePassword() === true && obj.validateEmail() === true) {
-    let responce = await getToken(inpEmail, inpPassword);
-    responce ? login() : logout();
-  // } else {
-  //   alert("Incorrect format username or password");
-  //   document.getElementById("username").value = "";
-  //   document.getElementById("password").value = "";
-  // }
-}
-   // async function checkUserLogIn() {                                    //розкоментувати для прав логыныз.
-   //   localStorage.clear();
-   //   let inpEmail = document.getElementById("username").value;
-   //   let inpPassword = document.getElementById("password").value;
-   //   let obj = new User(inpEmail, inpPassword);
+   async function checkUserLogIn() {                                    //розкоментувати для прав логініз.
+     localStorage.clear();
+     let inpEmail = document.getElementById("username").value;
+     let inpPassword = document.getElementById("password").value;
+     let obj = new User(inpEmail, inpPassword);
 
-   //   if (obj.validatePassword() === true && obj.validateEmail() === true) {
-   //     let responce = await getToken(inpEmail, inpPassword);
-   //     responce ? login() : logout();
-   //   } else {
-   //     alert("Incorrect format username or password");
-   //     document.getElementById("username").value = "";
-   //     document.getElementById("password").value = "";
-   //   }
-   // foundBtn(); //виносимо туди де відбув. успішна логінізація
-//  }    
+     if (obj.validatePassword() === true && obj.validateEmail() === true) {
+       let responce = await getToken(inpEmail, inpPassword);
+       responce ? login() : logout();
+     } else {
+       alert("Incorrect format username or password");
+       document.getElementById("username").value = "";
+       document.getElementById("password").value = "";
+     }
+  //  foundBtn(); //виносимо туди де відбув. успішна логінізація
+}    
+ 
+

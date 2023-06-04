@@ -110,16 +110,14 @@ export function pushChange(formObj) {
           document.querySelector(".create-box").remove();
           hide();
           clearInputs();
-          // let Newcard = [];       //було
-          // Newcard.push(response);  //було
-
-          // render(Newcard); // було убрала бо картка після створення з'являлась двічі
+         
           let parseCards = JSON.parse(localStorage.getItem("cardsData")); //поправила, щоб не було нового фетчзапиту при видаленні стрічка 20-26
 
 
-            parseCards.push(response);
-             localStorage.setItem("cardsData", JSON.stringify(filterCards));
-        //   render(response);
+            parseCards.unshift(response); 
+             localStorage.setItem("cardsData", JSON.stringify(parseCards)); 
+       
+        
         })
         .catch(() => console.log('Error', Error));
    

@@ -1,7 +1,7 @@
 import { filterSearch, clearInputs } from "./search.js";
 import { token, fetchData } from "./fetchGet.js";
 import { render } from "./script.js";
-import { hide } from "./login.js";
+import { check, hide } from "./login.js";
 
 export async function update() {
   
@@ -52,7 +52,8 @@ export function fillInputsFromObject(obj) {
         outputObj[name] = "Інформація відсутня";
         }
     });
-    }
+}
+    
 
 //Функция очистки  формы
 export function clear(form) {
@@ -68,7 +69,7 @@ export function clear(form) {
 
 //Функция отправки изменений
 export async function pushEdit(formObj, id) {
-    fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
+   const response = await fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -89,9 +90,9 @@ export async function pushEdit(formObj, id) {
          
       })
       .catch(() => console.log("Error"));
-    // await fetchData();
-    // await filterSearch();
-    update()
+    
+    update();
+
 }
 
 //Функция отправки новой карточки
@@ -120,7 +121,9 @@ export function pushChange(formObj) {
              localStorage.setItem("cardsData", JSON.stringify(filterCards));
         //   render(response);
         })
-            .catch(() => console.log('Error',Error));
+        .catch(() => console.log('Error', Error));
+   
+    //  update();
 }
 
 export function formSelect(form) {

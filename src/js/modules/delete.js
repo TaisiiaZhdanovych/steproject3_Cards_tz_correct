@@ -29,5 +29,5 @@ export async function del() {
             
         })
     })
-await fetchData();
+// await fetchData();
 }

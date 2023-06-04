@@ -8,7 +8,8 @@ import { formSelect, writeInputToObject, clear, pushChange, update } from "./fun
 
 
 export function foundBtn() {
-  pulseButton.addEventListener("click", () => {
+    pulseButton.addEventListener("click", () => {
+     pulseButton.style.display = "none"; 
     document.querySelector(".field-search").style.display = "none";// доб. чтоб поля поиска изчезали при открытии окна create
     document.querySelector(".create-form-background")?.remove();
     document.querySelector(".cards-holder").style.display = "none";

@@ -5,8 +5,8 @@
   "main": "gulpfile.js",
   "type": "module",
   "scripts": {
-    "start": "gulp build && gulp dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+     "dev": "gulp",
+    "build": "gulp build --build"
   },
   "author": "",
   "license": "ISC",

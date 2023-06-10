@@ -3,9 +3,11 @@ import { path } from "./gulp/config/path.js";
 import { plugins } from "./gulp/config/plugin.js";
 
 global.app = {
-    path: path,
-    gulp: gulp,
-    plugins: plugins,
+  isBuild: process.argv.includes("--build"),
+  isDev: !process.argv.includes("--build"),
+  path: path,
+  gulp: gulp,
+  plugins: plugins,
 };
 
 import { copy } from "./gulp/tasks/copy.js";
@@ -27,6 +29,12 @@ function watcher() {
 const mainTasks = gulp.parallel(copy, html, scss, js, images);
 
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
+
+const build = gulp.series(reset, mainTasks); //
+
+export { dev }; //
+export { build }; //
+
 
 gulp.task("default", dev);
 

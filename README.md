@@ -33,9 +33,9 @@ gitHub Pages: Taisiia;
 
 ## Посилання на проект
 
-https://gitlab.com/DoroshenkoDan/step-prj-cards-tda
+https://gitlab.com/Taisiia_Zhdanovych/correct_cards_fe_13_tda
 
-https://taisiiazhdanovych.github.io/stepProject-Cards-TZ-OH-DD/
+https://github.com/TaisiiaZhdanovych/TaisiiaZhdanovych-Steproject3_Cards_tz.git
 
 ## email and password for token
 

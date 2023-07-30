@@ -35,7 +35,7 @@ gitHub Pages: Taisiia;
 
 https://gitlab.com/Taisiia_Zhdanovych/correct_cards_fe_13_tda
 
-https://github.com/TaisiiaZhdanovych/TaisiiaZhdanovych-Steproject3_Cards_tz.git
+https://github.com/TaisiiaZhdanovych/steproject3_Cards_TZ.git
 
 ## email and password for token
 

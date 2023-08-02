@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "gulp",
-    "build": "gulp build --build"
+    "build": "gulp build --build",
+    "deploy": "gulp build && gulp deploy && git push"
   },
   "author": "",
   "license": "ISC",

@@ -18,10 +18,10 @@ async function getToken(username, password) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: `${username}`,
-      password: `${password}`,
-      // email: "taisiya@gmail.com",
-      // password: "cards1234",
+     // email: `${username}`,
+     // password: `${password}`,
+       email: "taisiya@gmail.com",
+       password: "cards1234",
     }),
   });
   const res = await data.text();

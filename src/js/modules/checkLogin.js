@@ -18,10 +18,10 @@ async function getToken(username, password) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: `${username}`,
-      password: `${password}`,
-      // email: "taisiya@gmail.com",
-      // password: "cards1234",
+      // email: `${username}`,      //розкоментувати для того, щоб було введення будь-якого паролю та імейлу
+      // password: `${password}`,
+      email: "taisiya@gmail.com",     //закоментувати для того, щоб було введення будь-якого паролю та імейлу
+      password: "Cards1234",
     }),
   });
   const res = await data.text();
@@ -93,9 +93,9 @@ export function logVal () {
        let responce = await getToken(inpEmail, inpPassword);
        responce ? login() : logout();
      } else {
-       alert("Incorrect format username or password");
-       document.getElementById("username").value = "";
-       document.getElementById("password").value = "";
+      //  alert("Incorrect format username or password");               //розкоментувати при форматі введення будь-якого паролю та імейлу
+       document.getElementById("username").value = "taisiya@gmail.com"; 
+       document.getElementById("password").value = "Cards1234";
      }
   //  foundBtn(); //виносимо туди де відбув. успішна логінізація
 }    
